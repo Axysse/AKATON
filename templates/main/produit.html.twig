@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<section class="m-10 pb-10  border-b-2 border-black">
+		<div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 max-md:w-96 ">
+			<img class="object-cover w-96 h-48 md:w-96 md:h-72 rounded-t-lg md:rounded-none md:rounded-s-lg" src="{{asset(product.image)}}" alt="">
+			<div class="flex flex-col justify-between gap-2 p-4 leading-normal">
+				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{product.name}}</h5>
+				<p class="mb-3 font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">{{product.description}}</p>
+				<p class="font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">{{product.price}}€</p>
+				<p class="font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">Stock :
+					{{product.stock}}
+					produits</p>
+				<p class="font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">Fournisseur :
+					{{product.author}}</p>
+				<p class="font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">Produit en ligne? :
+					{% if product.enable == 0 %}
+						<p>
+							Non</p>
+					{% else %}
+						<p>
+							Oui</p>
+					{% endif %}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="flex flex-row justify-around my-5">
+
+	<article>
+		<h2 class="mb-2">Supression de l'article?</h2>
+		<form name="supprimer" method="post">
+		<button type="submit" class="border border-black-500 bg-[#0b9c9f] rounded-xl p-2 text-white" name="supprimer" value="{{product.id}}">Supprimer</button>
+		</form>
+	</article>
+
+	<article>
+		<h2 class="mb-2">Modification de l'article?</h2>
+		<form name="modifier" method="post" enctype="multipart/form-data">
+		<div class="flex flex-row">
+		<p> Nom de l'article : </p><input class="border border-black"type="text" name="name" value="{{product.name}}">
+		</div>
+		<div class="flex flex-row">
+		<p> Description de l'article : </p><input class="border border-black"type="text" name="description" value="{{product.description}}">
+		</div>
+		<div class="flex flex-row">
+		<p> Prix de l'article : </p><input class="border border-black"type="text" name="price" value="{{product.price}}">
+		</div>
+		<div class="flex flex-row">
+		<p> Stock de l'article : </p><input class="border border-black"type="number" name="stock" value="{{product.stock}}">
+		</div>
+		<div class="flex flex-row">
+		<p> Fournisseur de l'article : </p><input class="border border-black"type="text" name="author" value="{{product.author}}">
+		</div>
+		<button type="submit" class="border border-black-500 bg-[#0b9c9f] rounded-xl p-2 text-white" name="modifier" value="{{product.id}}">Modifier</button>
+		</form>
+	</article>
+
+	</section>
+
+{% endblock %}

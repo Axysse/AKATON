@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section class="flex flex-col justify-center items-center gap-5 m-10">
+
+{{ form_start(form) }}
+<div class="mb-2 flex flex-row"> 
+<p>Nom du produit : </p> <div class="border border-black">{{ form_widget(form.name) }}</div>
+</div>
+<div class="mb-2 flex flex-row"> 
+<p>Prix : </p><div class="border border-black">{{ form_widget(form.price) }}</div>
+</div>
+<div class="mb-2 flex flex-row"> 
+<p>Stock : </p><div class="border border-black">{{ form_widget(form.stock) }}</div>
+</div>
+<div class="mb-2 flex flex-row"> 
+<p>Description : </p><div class="border border-black">{{ form_widget(form.description) }}</div>
+</div>
+<div class="mb-2 flex flex-row"> 
+<p>Fournisseur : </p><div class="border border-black">{{ form_widget(form.author) }}</div>
+</div>
+<div class="mb-2 flex flex-row"> 
+<p>Produit validé? : </p><div class="">{{ form_widget(form.enable) }}</div>
+</div>
+<div class="mb-2 flex flex-row"> 
+<p>Image : </p><div class="border border-black">{{ form_widget(form.image) }}</div>
+</div>
+<button class="border-2 border-black bg-black text-white">Soumettre</button>
+{{ form_end(form) }}
+
+
+</section>
+
+{% endblock %}

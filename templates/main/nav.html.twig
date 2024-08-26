@@ -1,0 +1,23 @@
+<section class="flex flex-row justify-between py-5 bg-black">
+
+<article class="ml-10 ">
+<a href="{{path('app_main')}}">
+<img src="{{asset('images/logo.png')}}" class="h-12" alt="logo mousquetaires" loading="lazy">
+</a>
+</article>
+
+<article class="flex gap-10 mr-10">
+<a href="{{path('app_login')}}" class="border border-black-500 bg-[#0b9c9f] rounded-xl p-2 text-white" >Connexion</a>
+{% if app.user %}
+<a href="{{path('app_logout')}}" class="border border-black-500 bg-[#0b9c9f] rounded-xl p-2 text-white" >Déconnexion</a>
+{% else %}
+<a href="{{path('app_register')}}" class="border border-black-500 bg-[#0b9c9f] rounded-xl p-2 text-white" >Inscription</a>
+{% endif %}
+</article>
+
+</section>
+
+<section class="bg-red-600 py-10 flex flex-row justify-around underline underline-offset-8">
+    <a href="{{path('app_main')}}" class=" hover:text-[#0b9c9f] text-xs lg:text-base font-bold">Index</a>
+    <a href="{{path('app_soumission')}}" class=" hover:text-[#0b9c9f] text-xs lg:text-base font-bold">Soumettre</a>
+</section>
