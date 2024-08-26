@@ -3,6 +3,7 @@
 {% block title %}Index BBstock!{% endblock %}
 
 {% block body %}
+<h2 class="flex flex-row justify-center items-center text-center mt-5"> Produits autorisés :</h2>
 <section class="m-10 flex flex-wrap justify-center gap-14">
 {% for product in products %}
 {% if product.enable == 1 %}
