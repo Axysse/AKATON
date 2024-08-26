@@ -47,6 +47,7 @@ class MainController extends AbstractController
                 $update->setPrice($_POST['price']);
                 $update->setStock($_POST['stock']);
                 $update->setAuthor($_POST['author']);
+                $update->setEnable($_POST['enable']);
                 $entity->flush();
                 return $this->redirectToRoute('app_main');
             

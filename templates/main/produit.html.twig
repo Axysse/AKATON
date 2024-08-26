@@ -52,6 +52,9 @@
 		<div class="flex flex-row">
 		<p> Fournisseur de l'article : </p><input class="border border-black"type="text" name="author" value="{{product.author}}">
 		</div>
+		<div class="flex flex-row">
+		<p> Autoriser l'article? : </p><input class="border border-black"type="number" name="enable" max="1" value="{{product.enable}}">
+		</div>
 		<button type="submit" class="border border-black-500 bg-[#0b9c9f] rounded-xl p-2 text-white" name="modifier" value="{{product.id}}">Modifier</button>
 		</form>
 	</article>
