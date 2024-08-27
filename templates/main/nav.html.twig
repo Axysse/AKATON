@@ -18,6 +18,9 @@
 </section>
 
 <section class="bg-red-600 py-10 flex flex-row justify-around underline underline-offset-8">
+    {% if app.user %}
+    <a href="{{path('app_user', {id: app.user.id})}}" class=" hover:text-[#0b9c9f] text-xs lg:text-base font-bold">Espace perso</a>
+    {% endif %}
     <a href="{{path('app_main')}}" class=" hover:text-[#0b9c9f] text-xs lg:text-base font-bold">Index</a>
     <a href="{{path('app_soumission')}}" class=" hover:text-[#0b9c9f] text-xs lg:text-base font-bold">Soumettre</a>
 </section>

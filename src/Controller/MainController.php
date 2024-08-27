@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Identifiants;
 use App\Entity\Product;
 use App\Form\AjoutProduitType;
 use Doctrine\Migrations\Events;
@@ -25,6 +26,19 @@ class MainController extends AbstractController
         ]);
     }
 
+    #[Route('/main/user{id}', name: 'app_user')]
+    public function user($id, EntityManagerInterface $entity): Response
+    {
+        $users = $entity->getRepository(Identifiants::class)->findAll();
+        $user = $entity->getRepository(Identifiants::class)->findOneBy(['id' => $id]);
+        return $this->render('main/user.html.twig', [
+            'controller_name' => 'MainController',
+            'users' => $users,
+            'user' => $user,
+            'id' => $id
+        ]);
+    }
+
     #[Route('/main/produit{id}', name: 'app_produit')]
     public function produit($id, EntityManagerInterface $entity): Response
     {
@@ -40,7 +54,10 @@ class MainController extends AbstractController
         }
 
         if (isset($_POST['modifier'])) {
+            
             $update = $entity->getRepository(Product::class)->find($_POST['modifier']);
+            $img = $entity->getRepository(Product::class)->findOneBy(['id' => $id])->getImage();
+            // dd($img);
             
                 $update->setName($_POST['name']);
                 $update->setDescription($_POST['description']);
@@ -48,6 +65,12 @@ class MainController extends AbstractController
                 $update->setStock($_POST['stock']);
                 $update->setAuthor($_POST['author']);
                 $update->setEnable($_POST['enable']);
+                if(file_exists($img)) {
+                    $entity->remove($img);
+                    $update->setImage($_POST['imageUpdt']); 
+                }
+                     
+
                 $entity->flush();
                 return $this->redirectToRoute('app_main');
             

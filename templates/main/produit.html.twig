@@ -7,7 +7,7 @@
 				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{product.name}}</h5>
 				<p class="mb-3 font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">{{product.description}}</p>
 				<p class="font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">{{product.price}}€</p>
-				<p class="font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">Stock :
+				<p class="font-normal text-gray-700 max-md:text-wrap dark:text-gray-400 text-xl">Stock :
 					{{product.stock}}
 					produits</p>
 				<p class="font-normal text-gray-700 max-md:text-wrap dark:text-gray-400">Fournisseur :
@@ -54,6 +54,9 @@
 		</div>
 		<div class="flex flex-row">
 		<p> Autoriser l'article? : </p><input class="border border-black"type="number" name="enable" max="1" value="{{product.enable}}">
+		</div>
+		<div class="flex flex-row">
+		<p> Image de l'article : </p><input class="border border-black" type="file" name="imageUpdt">
 		</div>
 		<button type="submit" class="border border-black-500 bg-[#0b9c9f] rounded-xl p-2 text-white" name="modifier" value="{{product.id}}">Modifier</button>
 		</form>
